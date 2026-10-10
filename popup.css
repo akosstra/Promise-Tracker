@@ -1,0 +1,13 @@
+html,
+body {
+  width: 360px;
+  min-height: 280px;
+}
+
+.list .promise {
+  padding: 10px;
+}
+
+.quote {
+  font-size: 14px;
+}

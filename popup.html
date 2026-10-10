@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promise Tracker</title>
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <h1>Promise Tracker</h1>
+        <p id="summary">Loading…</p>
+      </div>
+      <div class="counts" id="counts"></div>
+    </header>
+
+    <main class="layout">
+      <form class="composer" id="quick-add">
+        <label for="text">Capture a promise</label>
+        <textarea id="text" name="text" placeholder="I’ll send the deck on Friday" required></textarea>
+        <div class="row">
+          <div>
+            <label class="field-label" for="due">Due</label>
+            <input id="due" name="due" type="date" />
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" type="submit">Save</button>
+          <button class="btn ghost" type="button" id="open-inbox">Open inbox</button>
+        </div>
+      </form>
+
+      <section>
+        <div class="field-label" style="margin-bottom: 8px">Due soon</div>
+        <div class="list" id="list"></div>
+      </section>
+    </main>
+
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

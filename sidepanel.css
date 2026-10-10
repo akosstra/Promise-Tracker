@@ -1,0 +1,19 @@
+html,
+body {
+  min-width: 320px;
+}
+
+.promise .quote {
+  white-space: pre-wrap;
+}
+
+.due-edit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.due-edit input {
+  flex: 0 0 140px;
+  padding: 4px 8px;
+}
