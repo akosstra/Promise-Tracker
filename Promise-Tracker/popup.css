@@ -1,0 +1,45 @@
+html,
+body {
+  width: 380px;
+  min-height: 360px;
+}
+
+.listen-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.listen-card.on {
+  border-color: #99f6e4;
+  background: linear-gradient(180deg, #f0fdfa 0%, #fffdf8 70%);
+}
+
+.listen-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.listen-copy h2 {
+  margin: 8px 0 6px;
+  font-family: Georgia, "Iowan Old Style", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.listen-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}

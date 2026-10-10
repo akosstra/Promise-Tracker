@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promise Tracker</title>
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <h1>Promise Tracker</h1>
+        <p>Catch-ups and promises from the call</p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="listen-card" id="listen-card">
+        <div class="listen-copy">
+          <div class="listen-status">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span id="listen-label">Off</span>
+          </div>
+          <h2 id="meeting-title">This tab</h2>
+          <p id="listen-hint">Turn on in a Google Meet call to turn its live captions into follow-ups.</p>
+        </div>
+
+        <label class="switch">
+          <input type="checkbox" id="listen-toggle" />
+          <span class="switch-ui">
+            <span class="switch-knob"></span>
+            <span class="switch-text off">Off</span>
+            <span class="switch-text on">On</span>
+          </span>
+        </label>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <span class="field-label" id="followup-label">Follow-ups</span>
+          <button class="btn ghost small" type="button" id="open-inbox">Open notes</button>
+        </div>
+        <div class="list" id="list"></div>
+      </section>
+    </main>
+
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
