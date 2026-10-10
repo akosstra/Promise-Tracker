@@ -1,0 +1,33 @@
+body {
+  min-height: 100vh;
+}
+
+.top,
+.layout {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 8px 10px;
+}
+
+.composer .check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.check input {
+  margin-top: 3px;
+}

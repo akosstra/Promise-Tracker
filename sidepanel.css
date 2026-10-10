@@ -17,3 +17,99 @@ body {
   flex: 0 0 140px;
   padding: 4px 8px;
 }
+
+.meetings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.meetings:empty {
+  display: none;
+}
+
+.meeting {
+  padding: 0;
+}
+
+.meeting summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  padding: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.meeting summary::-webkit-details-marker {
+  display: none;
+}
+
+.meeting-title {
+  flex: 1 1 100%;
+  font-family: Georgia, "Iowan Old Style", serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.meeting-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 12px 12px;
+}
+
+.segment {
+  margin: 0;
+  font-size: 13px;
+}
+
+.segment time {
+  margin-right: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.commitment {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  border-left: 3px solid var(--teal);
+  border-radius: 6px;
+  background: rgba(20, 120, 108, 0.08);
+  font-family: Georgia, "Iowan Old Style", serif;
+  font-size: 13px;
+}
+
+.commitment button {
+  flex: none;
+}
+
+.btn[disabled] {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.meeting-error {
+  margin: 0;
+  padding: 6px 8px;
+  border: 1px solid #fecdd3;
+  border-radius: 6px;
+  background: #fff1f2;
+  color: var(--rose);
+  font-size: 12px;
+}
+
+.segment .speaker {
+  margin-right: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.segment .speaker.you {
+  color: var(--teal);
+}

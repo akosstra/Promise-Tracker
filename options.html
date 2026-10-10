@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promise Tracker settings</title>
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <h1>Meeting transcription</h1>
+        <p>Settings for transcribing meeting tabs</p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <form class="composer" id="settings-form">
+        <p class="meta">
+          Tab audio is recorded in short chunks and sent to the endpoint below for transcription.
+          Transcripts stay in this browser. Only record meetings where everyone knows and agrees.
+        </p>
+
+        <label for="endpoint">Transcription endpoint</label>
+        <input id="endpoint" type="text" spellcheck="false" autocomplete="off" required />
+
+        <label for="apiKey">API key</label>
+        <input id="apiKey" type="password" autocomplete="off" placeholder="Leave empty for a local server" />
+
+        <div class="row">
+          <div>
+            <label for="model">Model</label>
+            <input id="model" type="text" spellcheck="false" autocomplete="off" />
+          </div>
+          <div>
+            <label for="language">Language code</label>
+            <input id="language" type="text" maxlength="5" placeholder="Auto-detect" autocomplete="off" />
+          </div>
+          <div>
+            <label for="chunkSeconds">Chunk (sec)</label>
+            <input id="chunkSeconds" type="number" min="5" max="60" />
+          </div>
+        </div>
+
+        <label class="check" for="includeMic">
+          <input id="includeMic" type="checkbox" />
+          <span>
+            Also transcribe my microphone, so lines are labelled “You” and “Others”. Headphones
+            work best; speakers can leak the call into your mic.
+          </span>
+        </label>
+
+        <label class="check" for="consent">
+          <input id="consent" type="checkbox" />
+          <span>
+            I understand meeting audio is sent to this endpoint, and I will tell participants
+            before recording.
+          </span>
+        </label>
+
+        <div class="actions">
+          <button class="btn primary" type="submit">Save settings</button>
+        </div>
+        <p class="meta" id="settings-status" role="status"></p>
+      </form>
+    </main>
+
+    <script src="shared.js"></script>
+    <script src="transcripts.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

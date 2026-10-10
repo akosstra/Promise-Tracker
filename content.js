@@ -3,9 +3,6 @@ const MAX_HIGHLIGHTS = 12;
 const MAX_TEXT = 120000;
 const DISMISS_KEY = "pt-dismissed";
 
-const PROMISE_RE =
-  /\b((?:I|we|they|he|she)(?:'ll| will| promise(?: to)?| commit(?:ted)? to)|we commit(?:ted)? to|by (?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|EOD|end of (?:day|week|month)|\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?))\b/i;
-
 function dismissedSet() {
   try {
     return new Set(JSON.parse(sessionStorage.getItem(DISMISS_KEY) || "[]"));

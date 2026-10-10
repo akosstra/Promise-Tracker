@@ -3,8 +3,20 @@
   "name": "Promise Tracker",
   "version": "0.1.0",
   "description": "Capture commitments as you browse. Track what was promised, when it is due, and whether it was kept.",
-  "permissions": ["storage", "contextMenus", "sidePanel", "alarms", "activeTab"],
-  "host_permissions": ["http://*/*", "https://*/*"],
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "sidePanel",
+    "alarms",
+    "activeTab",
+    "tabCapture",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
   "background": {
     "service_worker": "background.js"
   },
@@ -20,11 +32,23 @@
   "side_panel": {
     "default_path": "sidepanel.html"
   },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
-      "js": ["shared.js", "content.js"],
-      "css": ["content.css"],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "shared.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
       "run_at": "document_idle"
     }
   ],

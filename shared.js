@@ -141,3 +141,14 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 }
+
+// Shared by content.js (on-page suggestions) and the meeting transcriber.
+const PROMISE_RE =
+  /\b((?:I|we|they|he|she)(?:'ll| will| promise(?: to)?| commit(?:ted)? to)|we commit(?:ted)? to|by (?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|EOD|end of (?:day|week|month)|\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?))\b/i;
+
+function findCommitments(text) {
+  return String(text || "")
+    .split(/(?<=[.!?])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence.length >= 12 && sentence.length <= 280 && PROMISE_RE.test(sentence));
+}

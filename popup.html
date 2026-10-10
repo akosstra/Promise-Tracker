@@ -32,6 +32,15 @@
         </div>
       </form>
 
+      <section class="composer" id="meeting">
+        <div class="field-label">Meeting transcription</div>
+        <p class="meta" id="meeting-status">Loading…</p>
+        <div class="actions">
+          <button class="btn primary" type="button" id="meeting-toggle" disabled>Transcribe this tab</button>
+          <button class="btn ghost" type="button" id="meeting-settings">Settings</button>
+        </div>
+      </section>
+
       <section>
         <div class="field-label" style="margin-bottom: 8px">Due soon</div>
         <div class="list" id="list"></div>
@@ -39,6 +48,8 @@
     </main>
 
     <script src="shared.js"></script>
+    <script src="transcripts.js"></script>
     <script src="popup.js"></script>
+    <script src="popup-meeting.js"></script>
   </body>
 </html>
