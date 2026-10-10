@@ -1,0 +1,61 @@
+.pt-highlight {
+  all: unset;
+  cursor: pointer;
+  background: rgba(20, 120, 108, 0.18);
+  border-bottom: 2px wavy #0f5f56;
+  border-radius: 2px;
+  color: inherit;
+  font: inherit;
+}
+
+.pt-highlight:hover,
+.pt-highlight:focus-visible {
+  background: rgba(20, 120, 108, 0.32);
+}
+
+.pt-highlight.pt-saved {
+  border-bottom-style: solid;
+  background: rgba(20, 120, 108, 0.12);
+}
+
+.pt-popover {
+  position: absolute;
+  z-index: 2147483646;
+  max-width: 320px;
+  padding: 10px;
+  background: #fffdf8;
+  color: #1f1a14;
+  border: 1px solid #d4cbb8;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(31, 26, 20, 0.16);
+  font: 13px/1.4 "Segoe UI", system-ui, sans-serif;
+}
+
+.pt-popover p {
+  margin: 0 0 8px;
+  font-family: Georgia, serif;
+}
+
+.pt-popover-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.pt-popover button {
+  border-radius: 7px;
+  padding: 6px 8px;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.pt-save {
+  background: #0f5f56;
+  color: #f7f3ea;
+  border: 0;
+}
+
+.pt-dismiss {
+  background: transparent;
+  border: 1px solid #d4cbb8;
+}

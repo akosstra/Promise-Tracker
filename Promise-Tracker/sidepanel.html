@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promise Tracker notes</title>
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <header class="top session-top" id="session-top">
+      <div class="brand">
+        <p class="listen-status"><span class="live-dot" aria-hidden="true"></span><span id="listen-label">Off</span></p>
+        <h1 id="meeting-title">Notes</h1>
+      </div>
+      <label class="switch compact">
+        <input type="checkbox" id="listen-toggle" />
+        <span class="switch-ui">
+          <span class="switch-knob"></span>
+          <span class="switch-text off">Off</span>
+          <span class="switch-text on">On</span>
+        </span>
+      </label>
+    </header>
+
+    <main class="layout">
+      <section class="composer notes-block">
+        <label for="notes">Clean notes</label>
+        <textarea id="notes" placeholder="Promises and catch-up laters from this call will be written here."></textarea>
+        <p class="hint" id="notes-hint">Turn listening on to start a meeting notebook.</p>
+      </section>
+
+      <section class="composer live-block" id="live-block" hidden>
+        <div class="live-head">
+          <label for="live-feed">Live captions</label>
+          <span class="tag maybe" id="live-state">Waiting</span>
+        </div>
+        <div class="live-feed" id="live-feed" tabindex="0" role="log" aria-live="off"></div>
+        <div class="actions">
+          <button class="btn primary" id="live-analyze" type="button" disabled>Find follow-ups</button>
+          <button class="btn ghost" id="live-copy" type="button" disabled>Copy</button>
+          <button class="btn ghost" id="live-download" type="button" disabled>Download</button>
+        </div>
+        <p class="hint" id="live-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="composer transcript-block">
+        <label for="transcript">Transcript</label>
+        <textarea
+          id="transcript"
+          placeholder="Paste a call transcript here. Speaker labels like “Priya: …” help work out who owes what."
+        ></textarea>
+        <input
+          id="your-name"
+          type="text"
+          autocomplete="off"
+          placeholder="Your name as it appears in the transcript (optional)"
+          aria-label="Your name in the transcript"
+        />
+        <div class="actions">
+          <button class="btn primary" id="analyze" type="button">Find follow-ups</button>
+          <button class="btn ghost" id="clear-transcript" type="button">Clear</button>
+        </div>
+        <p class="hint" id="analyze-status" role="status" aria-live="polite">
+          Finds promises, “circle back” and “look at that later” phrases, and adds them to the list below.
+        </p>
+
+        <details class="ai-settings">
+          <summary>Use Claude instead</summary>
+          <div class="ai-body">
+            <label class="check"><input type="checkbox" id="use-ai" /> Find and summarise follow-ups with Claude</label>
+            <input id="api-key" type="password" autocomplete="off" placeholder="Anthropic API key" aria-label="Anthropic API key" />
+            <p class="hint">
+              Phrase matching stays on this device. With Claude switched on, the transcript is sent to Anthropic's API using your key,
+              which is stored in this browser only.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <span class="field-label">Follow-up list</span>
+          <div class="filters" role="tablist" aria-label="Filter follow-ups">
+            <button class="filter" type="button" data-filter="open" aria-pressed="true">Open</button>
+            <button class="filter" type="button" data-filter="kept" aria-pressed="false">Done</button>
+            <button class="filter" type="button" data-filter="all" aria-pressed="false">All</button>
+          </div>
+        </div>
+
+        <form class="composer add-row" id="add-form">
+          <input id="text" type="text" required placeholder="Add a catch-up or promise" />
+          <button class="btn primary" type="submit">Add</button>
+        </form>
+
+        <div class="list" id="list"></div>
+      </section>
+    </main>
+
+    <script src="shared.js"></script>
+    <script src="extract.js"></script>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>
